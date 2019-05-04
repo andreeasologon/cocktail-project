@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import axios from 'axios';
+import './App.scss';
+import { Header, Navigation, SearchBar, Cocktails } from './components/index';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    nav: [{
+      id: 'Alcoholic',
+      name: 'Alcoholic'
+    },
+    {
+      id: 'Non_Alcoholic',
+      name: 'Non-alcoholic'
+    },
+    {
+      id: 'Ordinary_Drink',
+      name: 'Ordinary drink'
+    },
+    {
+      id: 'Cocktail_glass',
+      name: 'Cocktail glass'
+    },
+    {
+      id: "Champagne_flute",
+      name: 'Champagne flute'
+    }],
+
+    cocktails: '',
+    category: '',
+    details: false
+  }
+  componentDidMount() {
+
+    axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic')
+      .then(response => this.setState({
+        cocktails: response.data,
+        category: 'Alcoholic'
+      })
+      );
+
+    // axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
+    //   .then(response => this.setState({
+    //     cocktails: response.data,
+    //     category:'Ordinary drink'
+    //   })
+    //   );
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Navigation navigationItems={this.state.nav} />
+        <SearchBar />
+        <Cocktails category={this.state.category} cocktails={this.state.cocktails} />
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,16 @@
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  list-style: none;
+  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16);
+  li {
+    margin-right: 25px;
+
+    &:hover{
+        color: #ff4081;
+        cursor: pointer;
+    }
+  }
+}

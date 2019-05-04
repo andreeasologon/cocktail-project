@@ -1,0 +1,35 @@
+.tile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16);
+
+  &:hover {
+    cursor: pointer;
+    border-color: #ff40813b;
+    box-shadow: 0px 2px 6px 1px rgba(255, 64, 129, 0.23);
+  }
+  .button-search {
+    border: none;
+    padding: 8px;
+    text-decoration: none;
+    background: #ff4081;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:hover{
+        background-color: #ca3366d6;
+    }
+  }
+}
